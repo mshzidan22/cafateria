@@ -15,7 +15,7 @@ public class Account {
     private Long id;
     private String userName;
     private String password;
-    @OneToOne(mappedBy ="account" )
+    @OneToOne(mappedBy ="account")
     private Officer officer;
     @OneToOne(mappedBy = "account")
     private Employee employee;

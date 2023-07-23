@@ -5,6 +5,7 @@ import lombok.EqualsAndHashCode;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
+import java.util.HashSet;
 import java.util.Set;
 
 @Entity
@@ -15,12 +16,12 @@ public class Fatora {
     @GeneratedValue
     private Long id;
     private String code;
-    private LocalDateTime data;
+    private LocalDateTime date;
     private Double totalSell;
     private Double totalBuy;
 
     @ManyToOne
     private Officer officer;
-    @ManyToMany(mappedBy = "fawateerSet")
-    private Set<Product> products;
+    @OneToMany(mappedBy = "fatora",cascade = CascadeType.ALL)
+    private Set<Product> products = new HashSet<>();
 }

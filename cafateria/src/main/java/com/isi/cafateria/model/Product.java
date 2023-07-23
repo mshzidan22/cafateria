@@ -8,7 +8,7 @@ import java.util.Set;
 
 @Entity
 @Data
-@EqualsAndHashCode(exclude = {"invoiceLineList , fawateerSet"})
+@EqualsAndHashCode(exclude = "invoiceLineList ")
 public class Product {
 @Id
 @GeneratedValue
@@ -22,9 +22,9 @@ public class Product {
     @ManyToOne
     private Category category;
     private Double amount;
-    @ManyToMany
-    @JoinTable(name = "FAWATEER_PRODUCTS")
-    private Set<Fatora> fawateerSet;
+    @ManyToOne
+
+    private Fatora fatora;
 
     @OneToMany(mappedBy = "invoice")
     private Set<InvoiceLine> invoiceLineList;

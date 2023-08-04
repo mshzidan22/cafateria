@@ -10,7 +10,7 @@ public class InvoiceLine {
     @Id
     @GeneratedValue
     private Long id;
-    @Transient
+
     private Double amount;
     @Transient
     private Double unitPrice;

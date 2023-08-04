@@ -30,19 +30,24 @@ public class FatoraService {
         product1.setBarcode(6546546L);
         product1.setAmount(16D);
         product1.setCategory(category);
+        product1.setUnitPrice(5D);
+        product1.setPurchasing(4.5D);
 
         Product product2 = new Product();
         product2.setName("shitos 5 le");
         product2.setBarcode(8484L);
         product2.setAmount(18D);
         product2.setCategory(category);
-
+        product2.setUnitPrice(5D);
+        product2.setPurchasing(4.5D);
         Fatora fatora = new Fatora();
         fatora.setDate(LocalDateTime.now());
         fatora.setCode("46546");
         fatora.setOfficer(officer);
         fatora.getProducts().add(product1);
         fatora.getProducts().add(product2);
+        fatora.setTotalBuy(fatora.getProducts().stream().mapToDouble(product ->product.getUnitPrice()).sum());
+        fatora.setTotalSell(fatora.getProducts().stream().mapToDouble(product ->product.getPurchasing()).sum());
 
         fatoraRepo.save(fatora);
 

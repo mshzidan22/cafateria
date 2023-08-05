@@ -1,5 +1,6 @@
 package com.isi.cafateria.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
@@ -20,13 +21,16 @@ public class Product {
     private Double Purchasing;
     private Double unitPrice;
     @ManyToOne
+    @JsonIgnore
     private Category category;
     private Double amount;
     @ManyToOne
+    @JsonIgnore
 
     private Fatora fatora;
 
     @OneToMany(mappedBy = "invoice")
+    @JsonIgnore
     private Set<InvoiceLine> invoiceLineList;
 
 

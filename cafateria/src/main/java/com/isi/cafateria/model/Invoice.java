@@ -14,15 +14,18 @@ public class Invoice {
     @Id
     @GeneratedValue
     private Long id;
+
     private LocalDateTime date;
     private Double totalPrice;
     private Boolean isPaid;
 
     @ManyToOne
     private Employee employee;
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.PERSIST)
     private Customer customer;
-    @OneToMany(mappedBy = "invoice")
+    @OneToMany(mappedBy = "invoice",cascade = CascadeType.ALL)
     private Set<InvoiceLine> invoiceLinesList;
+    @OneToOne(cascade = CascadeType.ALL)
+    private Payment payment;
 
 }

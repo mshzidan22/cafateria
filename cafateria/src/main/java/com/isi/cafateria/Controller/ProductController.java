@@ -16,9 +16,12 @@ public class ProductController {
 
 
     @GetMapping("/products")
-    public List<Product> getAllProducts(@RequestParam int page,@RequestParam int size ,@RequestParam String sorting){
+    public List<Product> getAllProducts(@RequestParam(value = "page", required = false, defaultValue = "0") int page,
+                                        @RequestParam(value = "size", required = false, defaultValue = "10") int size
+            ,@RequestParam(value = "sorting", required = false, defaultValue = "id") String sorting){
         return productService.getAllProducts(page, size, sorting);
 
     }
+
 
 }

@@ -14,7 +14,7 @@ public class InvoiceLine {
     private Double amount;
     @Transient
     private Double unitPrice;
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.ALL)
     private Product product;
     @ManyToOne
     private Invoice invoice;

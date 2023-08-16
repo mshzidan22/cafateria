@@ -19,4 +19,6 @@ public class ProductService {
     public List<Product> getAllProducts(int page, int size ,String sorting){
        return productRepo.findAll(PageRequest.of(page, size, Sort.by(sorting))).getContent();
     }
+
+
 }

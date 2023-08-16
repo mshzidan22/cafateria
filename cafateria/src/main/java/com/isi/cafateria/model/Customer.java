@@ -21,5 +21,7 @@ public class Customer  {
     private CustomerType customerType;
     @OneToMany(mappedBy = "customer")
     private Set<Invoice> invoices;
+    @OneToMany(mappedBy = "customer")
+    private Set<Payment> payments;
 
 }
